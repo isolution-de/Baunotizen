@@ -13,16 +13,16 @@ void setup() {
 void loop() {
   ++counter;
 		
-	while (!rf12_canSend()) {
-		rf12_recvDone();
-	}
-	rf12_sendStart(0, &counter, sizeof counter);
-		 
-	Serial.print("gesendet: ");
-	Serial.println(counter, DEC);
+  while (!rf12_canSend()) {
+    rf12_recvDone();
+  }
 
-	delay(100);
-	}
+  rf12_sendStart(0, &counter, sizeof counter);
+		 
+  Serial.print("gesendet: ");
+  Serial.println(counter, DEC);
+
+  delay(100);
 }
 
 
